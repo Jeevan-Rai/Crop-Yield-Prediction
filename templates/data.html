@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+
+
+<div class="container" style="padding: 2%;">
+
+    <h2 style="text-align: center;">Enter Crop Data</h2>
+
+    <form action="/data" method="POST" style="padding: 2%;">
+        <div class="imgcontainer">
+            <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+        </div>
+
+
+        <label for=""><strong> Season :</strong> </label>
+        <label class="custom-select">
+            <select name="season" id="">
+                <option value="Kharif">Kharif</option>
+                <option value="Rabi">Rabi</option>
+            </select></label><br><br>
+        <label for="psw"><b>Crop</b></label>
+        <input type="text" name="crop" placeholder="Enter your Crop" required>
+        <br><br>
+        <label for=""><strong><u> Enter N-P-K values in the ratio N:P:K</strong></u> </label><br>
+        <label for=""><strong> Nitrogen (N)</strong> </label>
+        <input type="text" name="N" placeholder="N" required style="width: 10%;"> :
+        <label for=""><strong> Phosphorus (P) </strong> </label>
+        <input type="text" name="P" placeholder="P" required style="width: 10%;"> :
+        <label for=""><strong> Potassium (K)</strong> </label>
+        <input type="text" name="K" placeholder="K" required style="width: 10%;">
+
+        <br><br><br>
+        <label for=""><b>Enter pH values of the soil</b></label>
+        <input type="text" name="ph" placeholder="pH" required>
+        <br>
+        <label for="psw"><b>Total Area</b></label>
+        <input type="text" name="area" placeholder="Area in acres" required>
+        <button type="submit">Next</button>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
