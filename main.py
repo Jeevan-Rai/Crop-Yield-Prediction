@@ -31,6 +31,7 @@ def gettemp():
 def data():
     global attributes
     global res
+    
     if request.method == 'POST':
         attributes.clear()
         attributes.append(res)
@@ -41,12 +42,27 @@ def data():
         attributes.append(request.form.get('K'))
         attributes.append(request.form.get('ph'))
         attributes.append(request.form.get('area'))
+        
 
+        for i in attributes:
+            print(i)
 
+        
+        return redirect("/finaldata")
+    return render_template('data.html')
+
+@app.route("/finaldata", methods=['GET', 'POST']) 
+def prediction():
+    global attributes
+    global res
     for i in attributes:
         print(i)
+    import random
+    r=random.randint(1,30)
+    print(r)
+    return render_template('finaldata.html',attributes=attributes, r=r) 
 
 
-    return render_template("data.html")
+    
 app.run(debug=True)
 
