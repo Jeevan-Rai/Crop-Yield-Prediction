@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 attributes = []
 res=0
+r=0
 
 @app.route("/")
 def hello_world():
@@ -24,6 +25,9 @@ def gettemp():
     global attributes
     attributes.clear()
     attributes.append(res)
+    global r
+    import random
+    r=random.randint(1,30)
     # res=0
     return redirect("/data")
 
@@ -42,10 +46,12 @@ def data():
         attributes.append(request.form.get('K'))
         attributes.append(request.form.get('ph'))
         attributes.append(request.form.get('area'))
+        global r
+        attributes.append(r*0.0411)
         
 
-        for i in attributes:
-            print(i)
+        # for i in attributes:
+        #     print(i)
 
         
         return redirect("/finaldata")
@@ -55,12 +61,10 @@ def data():
 def prediction():
     global attributes
     global res
-    for i in attributes:
-        print(i)
-    import random
-    r=random.randint(1,30)
-    print(r)
-    return render_template('finaldata.html',attributes=attributes, r=r) 
+    # for i in attributes:
+    #     print(i)
+    # print(r)
+    return render_template('finaldata.html',attributes=attributes) 
 
 
     
