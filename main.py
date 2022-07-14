@@ -47,6 +47,7 @@ def data():
         attributes.append(request.form.get('ph'))
         attributes.append(request.form.get('area'))
         global r
+        r = int(attributes[3])+int(attributes[4])+int(attributes[5])+int(attributes[6])+int(attributes[7])
         attributes.append(r*0.0411)
         
 
